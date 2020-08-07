@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href='{% static "css/default.css" %}'>
+    <title>nilliria</title>
+    <!-- favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href='{% static "img/favicon-32x32.png" %}'>
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    {% block head %}
+    {% endblock head %}
+</head>
+<body>
+    <nav>
+        <img class='nav_left' src=''>
+        <div class='nav_right' id='sliderTrigger' onclick='showSlider()' src=''>hamburger</div>
+    </nav>
+    <header>
+        {% block header %}
+        {% endblock header %}
+    </header>
+    <main>
+        {% block main %}
+        {% endblock main %}
+    </main>
+    <footer>
+        {% block footer %}
+        {% endblock footer %}
+    </footer>
+
+    <!-- slider menu -->
+    <div class='menu_slider' id='slider'>
+        <ul class='slider'>
+            <li class='menu_1'>menu_1</li>
+            <li class='menu_2'>menu_2</li>
+            <li class='menu_3'>menu_3</li>
+            <li class='menu_4'>menu_4</li>
+        </ul>
+    </div>
+    <div class='page_fill' id='pageFill' onclick='hideSlider()'>
+    </div>
+    <!-- -->
+
+
+    <script>
+        var trigger = document.getElementById('sliderTrigger');
+        var slider = document.getElementById('slider');
+        var pageFill = document.getElementById('pageFill');
+        var body = document.getElementsByTagName('body')[0];
+        var currentViz = window.getComputedStyle(slider).getPropertyValue('display');
+
+        function showSlider() {
+            trigger.click();
+            slider.classList.add("active", "slider_active");
+            pageFill.classList.add("active", "page_fill_active");
+            body.classList.add("scroll_lock");
+            
+        }
+
+        function hideSlider() {
+            pageFill.click();
+            slider.classList.remove("active", "slider_active");
+            pageFill.classList.remove("active", "page_fill_active");
+            body.classList.remove("scroll_lock");
+        }
+
+    </script>
+
+</body>
+</html>
