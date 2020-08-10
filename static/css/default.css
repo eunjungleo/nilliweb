@@ -1,21 +1,37 @@
 @charset "utf-8";
-@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 /* layout */
+
+body {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 100%;
+    grid-template-rows: 5% 40% 45% 10%;
+    grid-template-areas: 
+        "nav"
+        "header"
+        "main"
+        "footer";
+}
 nav {
-    height: 10%;
+    background-color: #ffffff;
+    position: fixed;
+    grid-area: nav;
 }
 
 header {
-    height: 20%;
+    grid-area: header;
+    
 }
 
 main {
-    height: 60%;
+    grid-area: main;
+    overflow: auto !important;
 }
 
 footer {
-    height: 10%;
+    grid-area: footer;
 }
 
 /* nav slider  */
@@ -40,6 +56,7 @@ div.menu_slider {
 .active {
     display: block !important;
     position: fixed;
+    overflow-y: hidden;
     top: 0;
 }
 
@@ -47,29 +64,31 @@ div.menu_slider {
     width: 100% !important;
     height: 100% !important;
     z-index: 99;
+    display: none;
 }
 
 .scroll_lock {
-    overflow-y: hidden;
+    position: fixed;
+    overflow: hidden !important;
 }
 
 
 /* Reset */
- * {outline:0 !important;}
+ * {outline:0 !important; box-sizing: border-box;}
 html,body,h1,h2,h3,h4,h5,h6,div,p,blockquote,pre,code,address,ul,ol,li,menu,nav,section,article,aside,
-dl,dt,dd,table,thead,tbody,tfoot,label,caption,th,td,form,fieldset,legend,hr,input,button,textarea,object,figure,figcaption {margin:0;padding:0;}
-html, body{width:100%; height:100%;}
+dl,dt,dd,table,thead,tbody,tfoot,label,caption,th,td,form,fieldset,legend,hr,input,button,textarea,object,figure,figcaption {margin:0;padding:0; box-sizing: border-box;}
+html, body{max-width:100%; height:100%;}
 html{-webkit-touch-callout:none; -webkit-user-select:none; -webkit-tap-highlight-color:rgba(0, 0, 0, 0);}
 body{width:100%; background:#fff; min-width:320px; -webkit-text-size-adjust:none;word-wrap:break-word;word-break:break-all;}
 body,input,select,textarea,button {border:none;font-size:12px; font-family:'Noto Sans KR', sans-serif;color:#727272;}
 ul,ol,li{list-style:none;}
-table{width:100%;border-spacing:0;border-collapse:collapse;}
+table{width:100%;border-spacing:0;border-collapse:collapse; box-sizing: border-box;}
 img,fieldset{border:0;}
 address,cite,code,em{font-style:normal;font-weight:normal;}
 label,img,input,select,textarea,button{vertical-align:middle;}
 .hide,caption,legend{line-height:0;font-size:1px;overflow:hidden;}
 hr{display:none;}
-main,header,section,nav,footer,aside,article,figure{display:block;}
+main,header,section,nav,footer,aside,article,figure{display:block; width: 100%; margin: 0; padding: 0;}
 a{color:#000;text-decoration:none;}
  
 /* Form */

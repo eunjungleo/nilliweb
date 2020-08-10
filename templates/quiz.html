@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" type="text/css" href='{% static "css/quiz.css" %}'>
+{% endblock head %}
+
+{% block header %}
+<h1 class='quiz_header_h1'>사랑 이야기 찾기</h1>
+<span class='quiz_header_span'>내가 듣고싶은 사랑 이야기 골라듣기</span>
+{% endblock header %}
+
+{% block main %}
+
+<div class='progrss'>
+    <span class='prg_current' id='crntNum'>1</span>
+    <span class='prg_total'>/5</span>
+</div>
+
+<div class='quiz_main question wrap on' id='1'>
+    <h1 class='quiz_main question statement'>아내/남편과 부모님이 동시에 물에 빠진다면, 나는...</h1>
+    <form action=''>
+        <ul class='quiz_main question answer'>
+            <li id='op' onclick='pageTurner();'>
+                <label for="1_1">배우자를 먼저 구한다.</label>
+                <input type="radio" id="1_1">
+            </li>
+            <li id='op' onclick='pageTurner();'>
+                <label for="1_2">부모님을 먼저 구한다.</label>
+                <input type="radio" id="1_2">
+            </li>
+        </ul>
+    </form>
+</div>
+<div class='quiz_main question wrap' id='2'>
+    <h1 class='quiz_main question statement'>나의 넷플릭스 추천 동영상에는 ____가 뜬다.</h1>
+    <form action=''>
+        <ul class='quiz_main question answer'>
+            <li id='op' onclick='pageTurner();'>
+                <label for="2_1">사이코지만 괜찮아</label>
+                <input type="radio" id="2_1">
+            </li>
+            <li id='op' onclick='pageTurner();'>
+                <label for="2_2">키싱부스</label>
+                <input type="radio" id="2_2">
+            </li>
+        </ul>
+    </form>
+</div>
+<div class='quiz_main question wrap' id='3'>
+    <h1 class='quiz_main question statement'>음악을 들을때 나는</h1>
+    <form action=''>
+        <ul class='quiz_main question answer'>
+            <li id='op' onclick='pageTurner();'>
+                <label for="3_1">1등하는건 이유가 있어. 무조건 멜론 탑100</label>
+                <input type="radio" id="3_1">
+            </li>
+            <li id='op' onclick='pageTurner();'>
+                <label for="3_2">아무도 모르고 나만 아는 노래를 듣는다.</label>
+                <input type="radio" id="3_2">
+        </ul>
+    </form>
+</div>
+<div class='quiz_main question wrap' id='4'>
+    <h1 class='quiz_main question statement'>lorem</h1>
+    <form action=''>
+        <ul class='quiz_main question answer'>
+            <li id='op' onclick='pageTurner();'>
+                <label for="4_1">1</label>
+                <input type="radio" id="4_1">
+            </li>
+            <li id='op' onclick='pageTurner();'>
+                <label for="4_2">1</label>
+                <input type="radio" id="4_2">
+            </li>
+        </ul>
+    </form>
+</div>
+<div class='quiz_main question wrap' id='5'>
+    <h1 class='quiz_main question statement'>lorem</h1>
+    <form action=''>
+        <ul class='quiz_main question answer'>
+            <li id='op' onclick='showVid();'>
+                <label for="5_1">1</label>
+                <input type="radio" id="5_1">
+            </li>
+            <li id='op' onclick='showVid();'>
+                <label for="5_1">2</label>
+                <input type="radio" id="5_1">
+            </li>
+        </ul>
+    </form>
+</div>
+
+<a class='' id='setBack' href='#' onclick='clearVal()'>< 처음으로</a>
+
+{% endblock main %}
+
+
+
+{% block script %}
+<script>
+
+
+
+// turn to next Question
+function pageTurner() {
+    var crntQn = document.querySelector('.on');
+    var nextQn = crntQn.nextSibling.nextSibling;
+    crntQn.classList.remove('on')
+    nextQn.classList.add('on')
+    document.getElementById('crntNum').innerHTML = parseInt(crntQn.getAttribute('id'))+1;
+}
+
+// setBack button
+function clearVal() {
+
+}
+
+
+// redirection to matching detail page; ajax
+function showVid() {
+
+
+}
+
+</script>
+
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+{% endblock script %}

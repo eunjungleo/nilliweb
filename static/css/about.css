@@ -1,0 +1,87 @@
+/* layout*/ 
+body {
+    background-color: #ffdada;
+}
+
+header {
+    text-align: top;
+    object-fit: contain;
+}
+
+main {
+    padding: 4%;
+}
+
+h2 {
+    width: 100%;
+    text-align: center;
+    margin: 5% 0 2.5% 0;
+    font-size: 2rem;
+}
+
+/* team photo */
+.about_header_pic {
+    width: 100%;
+    height: auto;
+}
+
+/* sns */
+div.about_main_sns {
+    width: 80%;
+    height: 15%;
+    padding: 0 10% 0 10%;
+    margin: 0 auto;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 100%;
+}
+
+img.about_main_sns {
+    width: auto;
+    height: 100%;
+}
+
+img.instagram {
+    grid-area: 0/1;
+}
+
+img.youtube {
+    grid-area: 1/2;
+}
+
+img.tiktok {
+    grid-area: 2/3;
+}
+
+/* table */
+table.about_main_name {
+    width: 80%;
+    vertical-align: text-bottom;
+    margin: 0 auto;
+}
+
+
+td.name.left {
+    width: 20%;
+    font-size: 1rem;
+    color: #1f1f1f;
+}
+
+td.name.right {
+    width: 60%;
+    font-size: 1rem;
+    color: #727272;
+}
+
+td.info {
+    padding-bottom: 0.5rem;
+}
+
+
+/* logo */
+.logo.njp {
+    width: 40%;
+    object-fit: contain;
+    text-align: center;
+}

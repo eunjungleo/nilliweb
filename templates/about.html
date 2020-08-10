@@ -1,2 +1,68 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href='{% static "css/about.css" %}'>
+{% endblock head %}
+
+{% block header %}
+<img class='about_header_pic' src='{% static "img/team.jpg" %}'/>
+{% endblock header %}
+
+
+{% block main %}
+
+<div class='logo_wrap'>
+    <img class='logo' src=''>
+로고 들어갈 자리
+</div>
+
+<h2 class='about_main_sns'>keep in touch</h2>
+
+<div class='about_main_sns'>
+    <img class='about_main_sns instagram' src='{% static "img/sns_instagram.png" %}'>
+    <img class='about_main_sns youtube' src='{% static "img/sns_youtube.png" %}'/>
+    <img class='about_main_sns tiktok' src='{% static "img/sns_tiktok.svg" %}'/>
+</div>
+
+<h2 class='about_main_name'>squad nilli</h2>
+
+<table class='about_main_name'>
+    <tbody>
+        <tr>
+            <td class='1st name left'>이은정</td>
+            <td class='1st name right'>Eunjung Lee</td>
+        </tr>
+        <tr>
+            <td class='1st info' colspan='2'>덕성여자대학교 철학 16'</td>
+        </tr>
+        <tr>
+            <td class='2nd name left'>메흐리</td>
+            <td class='2nd name right'>Mähri Alhanowa</td>
+        </tr>
+        <tr>
+            <td class='2nd info' colspan='2'>동국대학교 Human recourses management 18'</td>
+        <tr/>
+        <tr>
+            <td class='3rd name left'>이경원</td>
+            <td class='3rd name right'>李庆元 | LIQINGYUAN</td>
+        </tr>
+        <tr>
+            <td class='3rd info' colspan='2'>한국외국어대학교 영미문학문화학 17'</td>
+        </tr>
+        <tr>
+            <td class='4th name left'>이연우</td>
+            <td class='4th name right'>Lee Yeonwoo</td>
+        </tr>
+        <tr>
+            <td class='4th info' colspan='2'>덕성여자대학교 철학 18'</td>
+        </td>
+    </tbody>
+</table>
+
+<img class='logo njp' src='{% static "img/about_nonjangpan.png" %}'/>
+
+{% endblock main %}
+
+{% block footer %}
+{% endblock footer %}
