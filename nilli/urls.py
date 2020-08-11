@@ -24,6 +24,7 @@ urlpatterns = [
     path('detail/<int:pk>/', viewer.views.detail_view, name='detail'),
     path('', ContentsAll.as_view()),
     path('finder/', viewer.views.quiz, name='quiz'),
+    path('match/', viewer.views.match_vid, name='match')
 
 
 ]

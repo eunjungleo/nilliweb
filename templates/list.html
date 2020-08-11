@@ -1,2 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block main %}
+
+<!-- show results -->
+{% if items %}
+    {{ obj.title }}
+
+
+
+
+<!-- object does not exist -->
+{% elif not items %}
+    nothing
+
+{% endif %}
+
+
+
+{% endblock main %}
