@@ -6,6 +6,10 @@ from django.db.models import Q
 
 from collections import Counter
 
+import os
+import sys
+import urllib.request
+
 #display all items
 class ContentsAll(ListView):
     model = Content
@@ -20,7 +24,30 @@ def detail_view(requests, pk):
     obj = get_object_or_404(Content, pk=pk)
     # get youtube id out of given url
     youtube_id = obj.url.split("/", 3)[3]
+
+    #papago API
+    if requests.method=='POST':
+        client_id = "arYxoqxnmpE47HiTcKg5" 
+        client_secret = "LIYfIKnF85"
+        encText = urllib.parse.quote(obj.korean)
+        data = "source=ko&target=en&text=" + encText
+        url = "https://openapi.naver.com/v1/papago/n2mt"
+        request = urllib.request.Request(url)
+        request.add_header("X-Naver-Client-Id",client_id)
+        request.add_header("X-Naver-Client-Secret",client_secret)
+        response = urllib.request.urlopen(request, data=data.encode("utf-8"))
+        rescode = response.getcode()
+        if(rescode==200):
+            response_body = response.read()
+            print(response_body.decode('utf-8'))
+        else:
+            print("Error Code:" + rescode)
+        
+    else:
+        pass
+
     return render(requests, "detail.html", {'youtube_id':youtube_id, 'obj':obj})
+
 
 #QUIZ
 def quiz(requests):
@@ -52,3 +79,8 @@ def match_vid(request):
         f = list(result_set)
 
     return render(request, "list.html", {'f':f})
+
+def papago(requests):
+
+    
+    return render(request, "detail.html")

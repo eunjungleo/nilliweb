@@ -34,6 +34,10 @@
         {{ obj.turkmen }}
     </p>
     <p class='detail_main_div text etc' id='etc'>
+        <form action='' method='POST'>
+            {% csrf_token %}
+            <button type='submit'>번역</button>
+        </form>
     <!-- papago api -->
     </p>
 </div>
@@ -41,7 +45,7 @@
 
 {% block script %}
 <script>
-
+/*
 //tab menu
     var tabList = document.querySelectorAll('ul.detail_main_ul li');
     var txtList = document.querySelectorAll('div.detail_main_div.wrap p.text');
@@ -95,5 +99,6 @@
     function stopVideo() {
     player.stopVideo();
     }
+*/
 </script>
 {% endblock script %}
