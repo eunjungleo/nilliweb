@@ -1,14 +1,17 @@
 from django.shortcuts import render
 from .models import *
 from django.views.generic import ListView, DetailView, TemplateView
+from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
+
 
 from collections import Counter
 
 import os
 import sys
 import urllib.request
+import json 
 
 #display all items
 class ContentsAll(ListView):
@@ -19,6 +22,7 @@ class ContentsAll(ListView):
 class AboutView(TemplateView):
     template_name = "about.html"
 
+@csrf_exempt
 # detailview
 def detail_view(requests, pk):
     obj = get_object_or_404(Content, pk=pk)
@@ -27,26 +31,32 @@ def detail_view(requests, pk):
 
     #papago API
     if requests.method=='POST':
+        userlang = requests.POST['lang']
+
         client_id = "arYxoqxnmpE47HiTcKg5" 
         client_secret = "LIYfIKnF85"
         encText = urllib.parse.quote(obj.korean)
-        data = "source=ko&target=en&text=" + encText
+        data = "source=ko&target="+ userlang + "&text=" + encText
         url = "https://openapi.naver.com/v1/papago/n2mt"
         request = urllib.request.Request(url)
         request.add_header("X-Naver-Client-Id",client_id)
         request.add_header("X-Naver-Client-Secret",client_secret)
         response = urllib.request.urlopen(request, data=data.encode("utf-8"))
         rescode = response.getcode()
+
+        
         if(rescode==200):
             response_body = response.read()
-            print(response_body.decode('utf-8'))
+            r = response_body.decode('utf-8')
+            perf_r = r.split('"translatedText":')[1].split(',"engineType"')[0]
+            
+            return render(requests, "detail.html", {'youtube_id':youtube_id, 'obj':obj, 'perf_r':perf_r})
+
         else:
             print("Error Code:" + rescode)
         
     else:
-        pass
-
-    return render(requests, "detail.html", {'youtube_id':youtube_id, 'obj':obj})
+        return render(requests, "detail.html", {'youtube_id':youtube_id, 'obj':obj})
 
 
 #QUIZ
