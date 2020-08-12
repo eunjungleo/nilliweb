@@ -4,17 +4,14 @@
 {% block main %}
 
 <!-- show results -->
-{% if items %}
-    {{ obj.title }}
+{% for obj in f %}
+    <a href='{% url "detail" obj.pk %}'>
+        <div class='lists items'>
+            {{ obj.title }}
+        </div>
+    </a>
+{% endfor %}
 
-
-
-
-<!-- object does not exist -->
-{% elif not items %}
-    nothing
-
-{% endif %}
 
 
 

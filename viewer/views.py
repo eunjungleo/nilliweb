@@ -4,36 +4,27 @@ from django.views.generic import ListView, DetailView, TemplateView
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
 
+from collections import Counter
 
+#display all items
 class ContentsAll(ListView):
     model = Content
     template_name = "list.html"
 
-
+# about team nilli
 class AboutView(TemplateView):
     template_name = "about.html"
 
 # detailview
 def detail_view(requests, pk):
     obj = get_object_or_404(Content, pk=pk)
+    # get youtube id out of given url
     youtube_id = obj.url.split("/", 3)[3]
     return render(requests, "detail.html", {'youtube_id':youtube_id, 'obj':obj})
 
 #QUIZ
 def quiz(requests):
 
-    """
-    # Q1. filter: eros vs. non eros
-
-    filter1 = Content.objects.filter(eros)
-
-
-
-    # Q2. filter: happy vs. not happy
-
-
-    # redirect to detail page
-    """
     return render(requests, "quiz.html")
 
 def match_vid(request):
@@ -44,18 +35,20 @@ def match_vid(request):
         q4_val = request.GET['q4'][0]
         q5_val = request.GET['q5'][0]
 
-        sort = Content.objects.filter(Q(q1=q1_val)|Q(q2=q2_val)|Q(q3=q3_val)|Q(q4=q4_val)|Q(q5=q5_val))
-        sort = set(sort)
-        items = list(sort)
-        
-        obj=None
-        for obj in items:
-            title = obj.title
+        sort1 = list(Content.objects.filter(q1=q1_val))
+        sort2 = list(Content.objects.filter(q2=q2_val))
+        sort3 = list(Content.objects.filter(q3=q3_val))
+        sort4 = list(Content.objects.filter(q4=q4_val))
+        sort5 = list(Content.objects.filter(q5=q5_val))
 
-        # order
-        counts = [q1_val, q2_val, q3_val, q4_val, q5_val]
-        counts = [ int(i) for i in counts ] 
-        scores = sum(counts)
+        # concat results
+        sorts = sort1 + sort2 + sort3 + sort4 + sort5
 
-    
-    return render(request, "list.html", {'items':items, 'obj':obj})
+        # order items by frequency
+        result = [item for items, i in Counter(sorts).most_common() for item in [items] * i] 
+
+        # de-duplicate
+        result_set = set(result)
+        f = list(result_set)
+
+    return render(request, "list.html", {'f':f})

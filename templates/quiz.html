@@ -33,6 +33,7 @@
             </li>
         </ul>
     </div>
+
     <div class='quiz_main question wrap' id='2'>
         <h1 class='quiz_main question statement'>나의 넷플릭스 추천 동영상에는 ____가 뜬다.</h1>
         <ul class='quiz_main question answer'>
@@ -46,6 +47,7 @@
             </li>
         </ul>
     </div>
+
     <div class='quiz_main question wrap' id='3'>
         <h1 class='quiz_main question statement'>음악을 들을때 나는</h1>
         <ul class='quiz_main question answer'>
@@ -58,28 +60,30 @@
                 <input type="radio" id="3_2" name='q3' value='1'>
         </ul>
     </div>
+
     <div class='quiz_main question wrap' id='4'>
-        <h1 class='quiz_main question statement'>lorem</h1>
+        <h1 class='quiz_main question statement'>카페ㅔ에 가면 나는...</h1>
         <ul class='quiz_main question answer'>
             <li id='op' onclick='pageTurner();'>
-                <label for="4_1">1</label>
+                <label for="4_1">깔끔한게 좋아, 아메리카노</label>
                 <input type="radio" id="4_1" name='q4' value='0'>
             </li>
             <li id='op' onclick='pageTurner();'>
-                <label for="4_2">1</label>
+                <label for="4_2">부드러운게 좋아, 라떼</label>
                 <input type="radio" id="4_2" name='q4' value='1'>
             </li>
         </ul>
     </div>
+
     <div class='quiz_main question wrap' id='5'>
-        <h1 class='quiz_main question statement'>lorem</h1>
+        <h1 class='quiz_main question statement'>여름 휴가를 떠난 당신, 어디로 갈까요?</h1>
         <ul class='quiz_main question answer'>
             <li id='op' onclick='showVid();'>
-                <label for="5_1">1</label>
+                <label for="5_1">시원한 바람이 부는 바닷가</label>
                 <input type="radio" id="5_1" name='q5' value='0'>
             </li>
             <li id='op' onclick='showVid();'>
-                <label for="5_1">2</label>
+                <label for="5_1">피톤치드 나오는 산</label>
                 <input type="radio" id="5_1" name='q5' value='1'>
             </li>
         </ul>
@@ -105,8 +109,8 @@
 
 // turn to next Question
 function pageTurner() {
-    var crntQn = document.querySelector('.on');
-    var nextQn = crntQn.nextSibling.nextSibling;
+    let crntQn = document.querySelector('.on');
+    let nextQn = crntQn.nextSibling.nextSibling;
     crntQn.classList.remove('on')
     nextQn.classList.add('on')
     document.getElementById('crntNum').innerHTML = parseInt(crntQn.getAttribute('id'))+1;
@@ -120,7 +124,7 @@ function clearVal() {
 
 // redirection to matching detail page; ajax
 function showVid() {
-    var btn = document.getElementById('submit');
+    let btn = document.getElementById('submit');
     btn.click();
 }
 
