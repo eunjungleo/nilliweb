@@ -11,7 +11,6 @@ from collections import Counter
 import os
 import sys
 import urllib.request
-import json 
 
 #display all items
 class ContentsAll(ListView):
@@ -53,7 +52,8 @@ def detail_view(requests, pk):
             return render(requests, "detail.html", {'youtube_id':youtube_id, 'obj':obj, 'perf_r':perf_r})
 
         else:
-            print("Error Code:" + rescode)
+            err = print("Error Code:" + rescode)
+            return render(requests, "detail.html", {'youtube_id':youtube_id, 'obj':obj, 'perf_r':perf_r, 'err':err})
         
     else:
         return render(requests, "detail.html", {'youtube_id':youtube_id, 'obj':obj})

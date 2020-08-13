@@ -26,9 +26,6 @@
     <p class='detail_main_div text kor open' id='kor'>
         {{ obj.korean }}
     </p>
-    <p class='detail_main_div text eng' id='eng'>
-        {{ obj.eng }}
-    </p>
     <p class='detail_main_div text mdr' id='mdr'>
         {{ obj.chinese }}
     </p>
@@ -37,32 +34,34 @@
     </p>
     <p class='detail_main_div text etc' id='etc'>
         <form action='' method='POST' name='lang'>
-                <label for='eng'>english</label>
-                <input class='etc lang' value='en' type='radio' name='lang' id='eng'>
-                <label for='cn'>中文</label>
-                <input class='etc lang' value='zh-CN' type='radio' name='lang' id='cn'>
-                <label for='ja'>日本語</label>
-                <input class='etc lang' value='ja' type='radio' name='lang' id='ja'>
-                <label for='vi'>Tiếng Việt</label>
-                <input class='etc lang' value='vi' type='radio' name='lang' id='vi'>
-                <label for='id'>bahasa Indonesia</label>
-                <input class='etc lang' value='id' type='radio' name='lang' id='id'>
-                <label for='th'>ไทย</label>
-                <input class='etc lang' value='th' type='radio' name='lang' id='th'>
-                <label for='de'>Deutsche</label>
-                <input class='etc lang' value='de' type='radio' name='lang' id='de'>
-                <label for='ru'>русский</label>
-                <input class='etc lang' value='ru' type='radio' name='lang' id='ru'>
-                <label for='es'>Español</label>
-                <input class='etc lang' value='es' type='radio' name='lang' id='es'>
-                <label for='it'>italiano</label>
-                <input class='etc lang' value='it' type='radio' name='lang' id='it'>
-                <label for='fr'>french</label>
-                <input class='etc lang' value='fr' type='radio' name='lang' id='fr'>
+            <label for='eng'>english</label>
+            <input class='etc lang' value='en' type='radio' name='lang' id='eng'>
+            <label for='cn'>中文</label>
+            <input class='etc lang' value='zh-CN' type='radio' name='lang' id='cn'>
+            <label for='ja'>日本語</label>
+            <input class='etc lang' value='ja' type='radio' name='lang' id='ja'>
+            <label for='vi'>Tiếng Việt</label>
+            <input class='etc lang' value='vi' type='radio' name='lang' id='vi'>
+            <label for='id'>bahasa Indonesia</label>
+            <input class='etc lang' value='id' type='radio' name='lang' id='id'>
+            <label for='th'>ไทย</label>
+            <input class='etc lang' value='th' type='radio' name='lang' id='th'>
+            <label for='de'>Deutsche</label>
+            <input class='etc lang' value='de' type='radio' name='lang' id='de'>
+            <label for='ru'>русский</label>
+            <input class='etc lang' value='ru' type='radio' name='lang' id='ru'>
+            <label for='es'>Español</label>
+            <input class='etc lang' value='es' type='radio' name='lang' id='es'>
+            <label for='it'>italiano</label>
+            <input class='etc lang' value='it' type='radio' name='lang' id='it'>
+            <label for='fr'>french</label>
+            <input class='etc lang' value='fr' type='radio' name='lang' id='fr'>
             <button type='submit'>번역</button>
         </form>
         {% if perf_r %}
         <span>{{ perf_r }}</span>
+            {% else %}
+            <span>{{ err }}</span>
         {% endif %}
     </p>
 </div>
@@ -70,7 +69,6 @@
 
 {% block script %}
 <script>
-/*
 //tab menu
     var tabList = document.querySelectorAll('ul.detail_main_ul li');
     var txtList = document.querySelectorAll('div.detail_main_div.wrap p.text');
@@ -83,16 +81,11 @@
         
     }
 
-//eng
-
 //mandarin
 
 //turkmenistan
 
 //translator
-
-
-
 
     //youtube iframe
     var tag = document.createElement('script');
@@ -124,6 +117,5 @@
     function stopVideo() {
     player.stopVideo();
     }
-*/
 </script>
 {% endblock script %}
