@@ -5,27 +5,11 @@
 <link rel="stylesheet" type="text/css" href='{% static "css/about.css" %}'>
 {% endblock head %}
 
-{% block header %}
-<img class='about_header_pic' src='{% static "img/team.jpg" %}'/>
-{% endblock header %}
-
-
 {% block main %}
 
-<div class='logo_wrap'>
-    <img class='logo' src=''>
-로고 들어갈 자리
-</div>
+<img class='about_header_pic' src='{% static "img/team.jpg" %}'/>
 
-<h2 class='about_main_sns'>keep in touch</h2>
-
-<div class='about_main_sns'>
-    <img class='about_main_sns instagram' src='{% static "img/sns_instagram.png" %}'>
-    <img class='about_main_sns youtube' src='{% static "img/sns_youtube.png" %}'/>
-    <img class='about_main_sns tiktok' src='{% static "img/sns_tiktok.svg" %}'/>
-</div>
-
-<h2 class='about_main_name'>squad nilli</h2>
+<img class='logo' src='{% static "img/nilli.png" %}'>
 
 <table class='about_main_name'>
     <tbody>
@@ -41,7 +25,7 @@
             <td class='2nd name right'>Mähri Alhanowa</td>
         </tr>
         <tr>
-            <td class='2nd info' colspan='2'>동국대학교 Human recourses management 18'</td>
+            <td class='2nd info' colspan='2'>동국대학교 경영대학원 석사과정 18'</td>
         <tr/>
         <tr>
             <td class='3rd name left'>이경원</td>
@@ -59,6 +43,11 @@
         </td>
     </tbody>
 </table>
+
+<div class='about_main_sns'>
+    <img class='about_main_sns instagram' src='{% static "img/sns_instagram.png" %}'>
+    <img class='about_main_sns youtube' src='{% static "img/sns_youtube.png" %}'/>
+</div>
 
 <img class='logo njp' src='{% static "img/about_nonjangpan.png" %}'/>
 

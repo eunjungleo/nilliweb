@@ -90,7 +90,6 @@ def match_vid(request):
 
     return render(request, "list.html", {'f':f})
 
-def papago(requests):
-
-    
-    return render(request, "detail.html")
+# map
+def mapview(requests):
+    return render(requests, 'map.html')

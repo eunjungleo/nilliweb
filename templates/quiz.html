@@ -7,12 +7,10 @@
 <link rel="stylesheet" type="text/css" href='{% static "css/quiz.css" %}'>
 {% endblock head %}
 
-{% block header %}
+{% block main %}
+
 <h1 class='quiz_header_h1'>사랑 이야기 찾기</h1>
 <span class='quiz_header_span'>내가 듣고싶은 사랑 이야기 골라듣기</span>
-{% endblock header %}
-
-{% block main %}
 
 <div class='progrss'>
     <span class='prg_current' id='crntNum'>1</span>
@@ -101,19 +99,20 @@
 {% endblock main %}
 
 
-
 {% block script %}
 <script>
 
 
-
 // turn to next Question
 function pageTurner() {
-    let crntQn = document.querySelector('.on');
-    let nextQn = crntQn.nextSibling.nextSibling;
+/*
+    let crntQn = document.getElementByClassName('on')
+    let nxtQn = crntQn.nextElementSibling;
     crntQn.classList.remove('on')
-    nextQn.classList.add('on')
+    nxtQn.classList.add('on')
+        
     document.getElementById('crntNum').innerHTML = parseInt(crntQn.getAttribute('id'))+1;
+*/
 }
 
 // setBack button

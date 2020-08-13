@@ -20,11 +20,13 @@ from viewer.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('about/', AboutView.as_view()),
+    path('about/', AboutView.as_view(), name='about'),
     path('detail/<int:pk>/', viewer.views.detail_view, name='detail'),
     path('', ContentsAll.as_view()),
     path('finder/', viewer.views.quiz, name='quiz'),
-    path('match/', viewer.views.match_vid, name='match')
+    path('map/', viewer.views.mapview, name='map'),
+    path('match/', viewer.views.match_vid, name='match'),
+    
 
 
 ]

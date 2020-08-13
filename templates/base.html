@@ -9,16 +9,15 @@
     <!-- favicon -->
     {% block head %}
     {% endblock head %}
-    <link rel="icon" type="image/png" sizes="32x32" href='{% static "img/favicon-32x32.png" %}'>
-    <meta name="msapplication-TileColor" content="#ffffff">
+    <link rel="shortcut icon" href='{% static "img/favicon.ico" %}' type="image/x-icon">
+    <link rel="icon" href='{% static "img/favicon.ico" %}' type="image/x-icon">   
     <meta name="theme-color" content="#ffffff">
 
 
 </head>
 <body>
     <nav>
-        <img class='nav_left' src=''>
-        <div class='nav_right' id='sliderTrigger' onclick='showSlider()' src=''>hamburger</div>
+        <img class='nav_left' src='{% static "img/hamburger.svg" %}'id='sliderTrigger' onclick='showSlider()'>
     </nav>
     <header>
         {% block header %}
@@ -35,25 +34,25 @@
 
     <!-- slider menu -->
     <div class='menu_slider' id='slider'>
+        <img class='slider logo' src='{% static "img/slider_logo.png" %}'>
+
         <ul class='slider'>
-            <li class='menu_1'>menu_1</li>
-            <li class='menu_2'>menu_2</li>
-            <li class='menu_3'>menu_3</li>
-            <li class='menu_4'>menu_4</li>
+            <li class='menu_1' onclick='location.href="{% url 'map' %}"'>세계지도에서 찾기</li>
+            <li class='menu_2' onclick='location.href="{% url 'quiz' %}"'>지금 딱 필요한 이야기 찾기</li>
+            <li class='menu_3' onclick='location.href="{% url 'map' %}"'>menu_3</li>
+            <li class='menu_4' onclick='location.href="{% url 'about' %}"'>about</li>
         </ul>
     </div>
     <div class='page_fill' id='pageFill' onclick='hideSlider()'>
     </div>
     <!-- -->
 
-
-
 <script>
-    var trigger = document.getElementById('sliderTrigger');
-    var slider = document.getElementById('slider');
-    var pageFill = document.getElementById('pageFill');
-    var body = document.getElementsByTagName('body')[0];
-    var currentViz = window.getComputedStyle(slider).getPropertyValue('display');
+    let trigger = document.getElementById('sliderTrigger');
+    let slider = document.getElementById('slider');
+    let pageFill = document.getElementById('pageFill');
+    let body = document.getElementsByTagName('body')[0];
+    let currentViz = window.getComputedStyle(slider).getPropertyValue('display');
 
     function showSlider() {
         trigger.click();

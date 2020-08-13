@@ -7,7 +7,7 @@ body {
     width: 100%;
     height: 100%;
     grid-template-columns: 100%;
-    grid-template-rows: 5% 40% 45% 10%;
+    grid-template-rows: 10% 0 85% 5%;
     grid-template-areas: 
         "nav"
         "header"
@@ -16,8 +16,13 @@ body {
 }
 nav {
     background-color: #ffffff;
-    position: fixed;
     grid-area: nav;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    height: 10%;
+    width: 100%;
+    position: fixed !important;
+    padding: 1% !important;
+
 }
 
 header {
@@ -34,18 +39,25 @@ footer {
     grid-area: footer;
 }
 
+img.nav_left {
+    height: 100%;
+    width: auto;
+}
 /* nav slider  */
 div.menu_slider {
     display: none;
     z-index: 100;
     height: 100%;
+    width: 70%;
     background-color: #ffffff;
+    transition: width 0.5s;
+    padding: 10%;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+
 }
 
 .slider_active {
-    width: 40%;
-    right: 0;
-    transition: width 2s;
+    left: 0;
 }
 
 .page_fill_active {
@@ -72,6 +84,25 @@ div.menu_slider {
     overflow: hidden !important;
 }
 
+img.slider.logo {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+ul.slider {
+    margin: 20% 0 0 0;
+}
+
+ul.slider > li {
+    font-size: 1.5rem;
+    margin: 10% 0 0 1%;
+}
+
+/* selected */
+.selected {
+    font-weight: 700;
+}
 
 /* Reset */
  * {outline:0 !important; box-sizing: border-box;}
@@ -109,6 +140,10 @@ textarea { padding:5px 0;}
 select:focus,
 textarea:focus,
 input:focus { border: 1px solid #727272;}
+
+input[type=radio] {
+    display: none;
+}
 
 input[type=tel][readonly],
 input[type=text][readonly],
