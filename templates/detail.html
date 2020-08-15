@@ -5,58 +5,68 @@
 <link rel="stylesheet" type="text/css" href='{% static "css/detail.css" %}'>
 {% endblock head %}
 
-{% block header %}
-
-<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-<div id="player"></div>
-
-{% endblock header %}
-
 {% block main %}
+<h1 class='detail_main_h1'>{{ obj.title }}</h1>
+<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+<div id="player" style="width: 100%; height: 40%;"></div>
 
-        {{ obj.title }}
 <ul class='detail_main_ul'>
-    <li class='kor' id='kor' onclick='korOn();'>한국어</li>
-    <li class='eng' id='eng' onclick='engOn();'>eng</li>
-    <li class='mdr' id='mdr' onclick='mdrOn();'>汉语</li>
-    <li class='trk' id='trk' onclick='trkOn()'>Türkmen</li>
-    <li class='etc' id ='etc' onclick='etcOn()'>more</li>
+    {% if obj.korean %}
+    <li class='kor' id='kor' onclick='On();'>한국어</li>
+    {% endif %}
+    {% if obj.english %}
+    <li class='eng' id='eng' onclick='On();'>eng</li>
+    {% endif %}
+    {% if obj.chinese %}
+    <li class='mdr' id='mdr' onclick='On();'>汉语</li>
+    {% endif %}
+    {% if obj.turkmen %}
+    <li class='trk' id='trk' onclick='On()'>Türkmen</li>
+    {% endif %}
+    <li class='etc' id ='etc' onclick='On()'>more</li>
 </ul>
+<br/>
 <div class='detail_main_div wrap'>
+    {% if obj.korean %}
     <p class='detail_main_div text kor open' id='kor'>
         {{ obj.korean }}
     </p>
+    {% endif %}
+    {% if obj.chinese %}
     <p class='detail_main_div text mdr' id='mdr'>
         {{ obj.chinese }}
     </p>
+    {% endif %}
+    {% if obj.turkmen %}
     <p class='detail_main_div text trk' id='trk'>
         {{ obj.turkmen }}
     </p>
+    {% endif %}
     <p class='detail_main_div text etc' id='etc'>
         <form action='' method='POST' name='lang'>
             <label for='eng'>english</label>
-            <input class='etc lang' value='en' type='radio' name='lang' id='eng'>
+            <input class='etc lang' value='en' type='radio' name='lang' id='eng' >
             <label for='cn'>中文</label>
-            <input class='etc lang' value='zh-CN' type='radio' name='lang' id='cn'>
+            <input class='etc lang' value='zh-CN' type='radio' name='lang' id='cn' >
             <label for='ja'>日本語</label>
-            <input class='etc lang' value='ja' type='radio' name='lang' id='ja'>
+            <input class='etc lang' value='ja' type='radio' name='lang' id='ja' >
             <label for='vi'>Tiếng Việt</label>
-            <input class='etc lang' value='vi' type='radio' name='lang' id='vi'>
+            <input class='etc lang' value='vi' type='radio' name='lang' id='vi' >
             <label for='id'>bahasa Indonesia</label>
-            <input class='etc lang' value='id' type='radio' name='lang' id='id'>
+            <input class='etc lang' value='id' type='radio' name='lang' id='id' >
             <label for='th'>ไทย</label>
-            <input class='etc lang' value='th' type='radio' name='lang' id='th'>
+            <input class='etc lang' value='th' type='radio' name='lang' id='th' >
             <label for='de'>Deutsche</label>
-            <input class='etc lang' value='de' type='radio' name='lang' id='de'>
+            <input class='etc lang' value='de' type='radio' name='lang' id='de' >
             <label for='ru'>русский</label>
-            <input class='etc lang' value='ru' type='radio' name='lang' id='ru'>
+            <input class='etc lang' value='ru' type='radio' name='lang' id='ru' >
             <label for='es'>Español</label>
-            <input class='etc lang' value='es' type='radio' name='lang' id='es'>
+            <input class='etc lang' value='es' type='radio' name='lang' id='es' >
             <label for='it'>italiano</label>
-            <input class='etc lang' value='it' type='radio' name='lang' id='it'>
+            <input class='etc lang' value='it' type='radio' name='lang' id='it' >
             <label for='fr'>french</label>
-            <input class='etc lang' value='fr' type='radio' name='lang' id='fr'>
-            <button type='submit'>번역</button>
+            <input class='etc lang' value='fr' type='radio' name='lang' id='fr' >
+            <button type='submit' id='submit'>번역</button>
         </form>
         {% if perf_r %}
         <span>{{ perf_r }}</span>
@@ -69,25 +79,8 @@
 
 {% block script %}
 <script>
-//tab menu
-    var tabList = document.querySelectorAll('ul.detail_main_ul li');
-    var txtList = document.querySelectorAll('div.detail_main_div.wrap p.text');
-    var tab;
-    var txt;
-    var matchingTxt = document.
 
-//kor
-    function korOpen() {
-        
-    }
-
-//mandarin
-
-//turkmenistan
-
-//translator
-
-    //youtube iframe
+//youtube iframe
     var tag = document.createElement('script');
 
     tag.src = "https://www.youtube.com/iframe_api";
@@ -117,5 +110,9 @@
     function stopVideo() {
     player.stopVideo();
     }
+
+
 </script>
+
 {% endblock script %}
+

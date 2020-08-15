@@ -9,8 +9,11 @@
 
 {% block main %}
 
-<h1 class='quiz_header_h1'>사랑 이야기 찾기</h1>
-<span class='quiz_header_span'>내가 듣고싶은 사랑 이야기 골라듣기</span>
+<div class='ex'>
+    <h1 class='quiz_header_h1'>사랑 이야기 찾기</h1>
+    <p class='quiz_header_span'>내가 듣고싶은 사랑 이야기 골라듣기</p>
+</div>
+
 
 <div class='progrss'>
     <span class='prg_current' id='crntNum'>1</span>
@@ -87,7 +90,7 @@
         </ul>
     </div>
 
-    <input type='submit' value='submit' id='submit'/>
+    <input type='submit' value='submit' id='submit' class='btn'/>
 
     <br>
 
@@ -105,24 +108,28 @@
 // turn to next Question
 function pageTurner1() {
     let current = document.getElementById('1');
+    current.setAttribute('font-weight', '700');
     current.classList.remove('on');
     document.getElementById('2').classList.add('on');
 }
 
 function pageTurner2() {
     let current = document.getElementById('2');
+    current.setAttribute('font-weight', '700');
     current.classList.remove('on');
     document.getElementById('3').classList.add('on');
 }
 
 function pageTurner3() {
     let current = document.getElementById('3');
+    current.setAttribute('font-weight', '700');
     current.classList.remove('on');
     document.getElementById('4').classList.add('on');
 }
 
 function pageTurner4() {
     let current = document.getElementById('4');
+    current.setAttribute('font-weight', '700');
     current.classList.remove('on');
     document.getElementById('5').classList.add('on');
 }
@@ -132,7 +139,6 @@ function clearVal() {
 
 }
 
-
 // redirection to matching detail page; ajax
 function showVid() {
     let btn = document.getElementById('submit');
@@ -141,8 +147,4 @@ function showVid() {
 
 </script>
 
-
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 {% endblock script %}

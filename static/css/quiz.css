@@ -1,24 +1,34 @@
-h1.quiz_header_h1 {
+.ex {
     width: 100%;
-    height: auto;
-}
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-span.quiz_header_span {
-    width: 100%;
-    height: 50%;
 }
 
 /* main */
-main {
-
-}
-
 div.wrap {
     width: 100%;
     height: 100%;
     display: none;
+    padding: 2%;
+}
+
+div.progrss {
+    padding: 2%;
+}
+
+.statement {
+    margin-bottom: 1rem;
 }
 
 .on {
     display: block !important;
+}
+
+
+.btn {
+    display: none;
 }

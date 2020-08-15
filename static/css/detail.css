@@ -1,8 +1,18 @@
+h1.detail_main_h1 {
+    width: 100%;
+    height: 7%;
+}
+
 .open {
-    display: block;
+    display: block !important;
 
 }
 
 .detail_main_div.text {
     display: none;
+}
+
+ul li {
+    float: left;
+    margin-right: 1%;
 }
