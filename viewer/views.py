@@ -26,12 +26,11 @@ class AboutView(TemplateView):
 def detail_view(requests, pk):
     obj = get_object_or_404(Content, pk=pk)
     # get youtube id out of given url
-    youtube_id = obj.url.split("/", 3)[3]
+    youtube_id = obj.youtube_url.split("/", 3)[3]
 
     #papago API
     if requests.method=='POST':
         userlang = requests.POST['lang']
-
         client_id = "arYxoqxnmpE47HiTcKg5" 
         client_secret = "LIYfIKnF85"
         encText = urllib.parse.quote(obj.korean)
@@ -93,3 +92,18 @@ def match_vid(request):
 # map
 def mapview(requests):
     return render(requests, 'map.html')
+
+# map list
+def country_view(requests, option):
+    content = None
+
+    if option=='tm':
+        content = Content.objects.filter(id__range=(1,3))
+    elif option=='cn':
+        content = Content.objects.filter(id__range=(4,6))
+    elif option=='kr':
+        content = Content.objects.filter(id__range=(7,8))
+    elif option=='at':
+        content = Content.objects.filter(id=9)
+    print(content)
+    return render(requests, "list.html", {'content':content})

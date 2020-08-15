@@ -9,19 +9,29 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-import os
+import os, json
+from django.core.exceptions import ImproperlyConfigured
 from pathlib import Path
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
+confidentials = os.path.join(BASE_DIR, "wtf.json")
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@$d*fnf7qy5&$77%$a+pntiez1kob$+$uu=d5#333@m)5e3g-u'
+with open(confidentials) as f:
+    keys = json.loads(f.read())
+
+def load_key(setting, keys=keys):
+    try:
+        return keys[setting]
+    except KeyError:
+        error_msg = "Set the {} environment variable.".format(setting)
+        raise ImproperlyConfigured(error_msg)
+
+SECRET_KEY = load_key("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -77,9 +87,14 @@ WSGI_APPLICATION = 'nilli.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+    "default": {
+        "ENGINE": load_key("ENGINE"),
+        "NAME": load_key("NAME"),
+        "USER": load_key("USER"),
+        "PASSWORD": load_key("PASSWORD"),                 
+        "HOST": load_key("HOST"),                     
+        "PORT": load_key("PORT")
     }
 }
 

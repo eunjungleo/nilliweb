@@ -26,7 +26,6 @@ urlpatterns = [
     path('finder/', viewer.views.quiz, name='quiz'),
     path('map/', viewer.views.mapview, name='map'),
     path('match/', viewer.views.match_vid, name='match'),
-    
-
-
+    path('list/<str:option>/', viewer.views.country_view, name='countryview'),
 ]
+
