@@ -26,7 +26,7 @@ class AboutView(TemplateView):
 def detail_view(requests, pk):
     obj = get_object_or_404(Content, pk=pk)
     # get youtube id out of given url
-    youtube_id = obj.youtube_url.split("/", 3)[3]
+    youtube_id = obj.youtube_url.split(".be/")[1]
 
     #papago API
     if requests.method=='POST':
@@ -85,7 +85,7 @@ def match_vid(request):
 
         # de-duplicate
         result_set = set(result)
-        f = list(result_set)
+        f = list(result_set)[0:3]
 
     return render(request, "list.html", {'f':f})
 

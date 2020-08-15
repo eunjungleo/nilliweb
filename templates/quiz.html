@@ -17,17 +17,17 @@
     <span class='prg_total'>/5</span>
 </div>
 
-<form action='{% url 'match' %}'>
+<form action='{% url 'match' %}' id='parent'>
     <div class='quiz_main question wrap on' id='1'>
         <h1 class='quiz_main question statement'>아내/남편과 부모님이 동시에 물에 빠진다면, 나는...</h1>
         <ul class='quiz_main question answer'>
-            <li id='op' onclick='pageTurner();'>
+            <li id='op'>
                 <label for="1_1">배우자를 먼저 구한다.</label>
-                <input type="radio" id="1_1" name='q1' value='0'>
+                <input type="radio" id="1_1" name='q1' value='0' onclick='pageTurner1();'>
             </li>
-            <li id='op' onclick='pageTurner();'>
+            <li id='op' >
                 <label for="1_2">부모님을 먼저 구한다.</label>
-                <input type="radio" id="1_2" name='q1' value='1'>
+                <input type="radio" id="1_2" name='q1' value='1' onclick='pageTurner1();'>
             </li>
         </ul>
     </div>
@@ -35,13 +35,13 @@
     <div class='quiz_main question wrap' id='2'>
         <h1 class='quiz_main question statement'>나의 넷플릭스 추천 동영상에는 ____가 뜬다.</h1>
         <ul class='quiz_main question answer'>
-            <li id='op' onclick='pageTurner();'>
+            <li id='op' >
                 <label for="2_1">사이코지만 괜찮아</label>
-                <input type="radio" id="2_1" name='q2' value='0'>
+                <input type="radio" id="2_1" name='q2' value='0' onclick='pageTurner2();'>
             </li>
-            <li id='op' onclick='pageTurner();'>
+            <li id='op' >
                 <label for="2_2">키싱부스</label>
-                <input type="radio" id="2_2" name='q2' value='1'>
+                <input type="radio" id="2_2" name='q2' value='1' onclick='pageTurner2();'>
             </li>
         </ul>
     </div>
@@ -49,26 +49,26 @@
     <div class='quiz_main question wrap' id='3'>
         <h1 class='quiz_main question statement'>음악을 들을때 나는</h1>
         <ul class='quiz_main question answer'>
-            <li id='op' onclick='pageTurner();'>
+            <li id='op' >
                 <label for="3_1">1등하는건 이유가 있어. 무조건 멜론 탑100</label>
-                <input type="radio" id="3_1" name='q3' value='0'>
+                <input type="radio" id="3_1" name='q3' value='0' onclick='pageTurner3();'>
             </li>
-            <li id='op' onclick='pageTurner();'>
+            <li id='op' >
                 <label for="3_2">아무도 모르고 나만 아는 노래를 듣는다.</label>
-                <input type="radio" id="3_2" name='q3' value='1'>
+                <input type="radio" id="3_2" name='q3' value='1' onclick='pageTurner3();'>
         </ul>
     </div>
 
     <div class='quiz_main question wrap' id='4'>
         <h1 class='quiz_main question statement'>카페ㅔ에 가면 나는...</h1>
         <ul class='quiz_main question answer'>
-            <li id='op' onclick='pageTurner();'>
+            <li id='op' >
                 <label for="4_1">깔끔한게 좋아, 아메리카노</label>
-                <input type="radio" id="4_1" name='q4' value='0'>
+                <input type="radio" id="4_1" name='q4' value='0' onclick='pageTurner4();'>
             </li>
-            <li id='op' onclick='pageTurner();'>
+            <li id='op' >
                 <label for="4_2">부드러운게 좋아, 라떼</label>
-                <input type="radio" id="4_2" name='q4' value='1'>
+                <input type="radio" id="4_2" name='q4' value='1' onclick='pageTurner4();'>
             </li>
         </ul>
     </div>
@@ -78,11 +78,11 @@
         <ul class='quiz_main question answer'>
             <li id='op' onclick='showVid();'>
                 <label for="5_1">시원한 바람이 부는 바닷가</label>
-                <input type="radio" id="5_1" name='q5' value='0'>
+                <input type="radio" id="5_1" name='q5' value='0' onclick='showVid();'>
             </li>
             <li id='op' onclick='showVid();'>
                 <label for="5_1">피톤치드 나오는 산</label>
-                <input type="radio" id="5_1" name='q5' value='1'>
+                <input type="radio" id="5_1" name='q5' value='1' onclick='showVid();'>
             </li>
         </ul>
     </div>
@@ -102,17 +102,29 @@
 {% block script %}
 <script>
 
-
 // turn to next Question
-function pageTurner() {
-/*
-    let crntQn = document.getElementByClassName('on')
-    let nxtQn = crntQn.nextElementSibling;
-    crntQn.classList.remove('on')
-    nxtQn.classList.add('on')
-        
-    document.getElementById('crntNum').innerHTML = parseInt(crntQn.getAttribute('id'))+1;
-*/
+function pageTurner1() {
+    let current = document.getElementById('1');
+    current.classList.remove('on');
+    document.getElementById('2').classList.add('on');
+}
+
+function pageTurner2() {
+    let current = document.getElementById('2');
+    current.classList.remove('on');
+    document.getElementById('3').classList.add('on');
+}
+
+function pageTurner3() {
+    let current = document.getElementById('3');
+    current.classList.remove('on');
+    document.getElementById('4').classList.add('on');
+}
+
+function pageTurner4() {
+    let current = document.getElementById('4');
+    current.classList.remove('on');
+    document.getElementById('5').classList.add('on');
 }
 
 // setBack button
