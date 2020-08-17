@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block head %}
+<link rel="stylesheet" type="text/css" href='{% static "css/detail.css" %}'>
+{% endblock head %}
+
 {% block main %}
+
+<div class='ex'>
+    <h1 class='quiz_header_h1'>사랑 이야기 찾기</h1>
+    <p class='quiz_header_span'>지금 나에게 딱 어울리는 이야기들</p>
+</div>
+
 
 <!-- show results -->
 {% for obj in f %}

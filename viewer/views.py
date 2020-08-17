@@ -82,7 +82,7 @@ def match_vid(request):
 
         # order items by frequency
         result = [item for items, i in Counter(sorts).most_common() for item in [items] * i] 
-
+        print(result)
         # de-duplicate
         result_set = set(result)
         f = list(result_set)[0:3]

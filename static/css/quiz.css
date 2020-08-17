@@ -28,7 +28,18 @@ div.progrss {
     display: block !important;
 }
 
-
 .btn {
     display: none;
+}
+
+li {
+    margin-bottom: 2%;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+label {
+    font-size: 20px;
 }
