@@ -1,0 +1,12 @@
+{
+    "SECRET_KEY": "@$d*fnf7qy5&$77%$a+pntiez1kob$+$uu=d5#333@m)5e3g-u",
+
+
+    "ENGINE": "django.db.backends.mysql",
+    "NAME": "nilli",
+    "USER": "eowoonil",
+    "PASSWORD": "A$AProcky123",                 
+    "HOST": "localhost",                     
+    "PORT": "3306"
+
+}
