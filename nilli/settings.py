@@ -37,8 +37,9 @@ SECRET_KEY = load_key("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'Nilli-env.eba-mpnsdpav.ap-northeast-2.elasticbeanstalk.com',
-    'localhost']
+    'nilli-env2.eba-epvizmw2.ap-northeast-2.elasticbeanstalk.com',
+    'localhost',
+    ]
 
 
 # Application definitionpytho
