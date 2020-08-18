@@ -27,6 +27,7 @@ def detail_view(requests, pk):
     obj = get_object_or_404(Content, pk=pk)
     # get youtube id out of given url
     youtube_id = obj.youtube_url.split(".be/")[1]
+    pl_url = 'https://www.youtube.com/embed/videoseries?list='+ obj.playlist_url.split("?list=")[1]
 
     #papago API
     if requests.method=='POST':
@@ -48,14 +49,14 @@ def detail_view(requests, pk):
             r = response_body.decode('utf-8')
             perf_r = r.split('"translatedText":')[1].split(',"engineType"')[0]
             
-            return render(requests, "detail.html", {'youtube_id':youtube_id, 'obj':obj, 'perf_r':perf_r})
+            return render(requests, "detail.html", {'youtube_id':youtube_id, 'pl_url':pl_url, 'obj':obj, 'perf_r':perf_r})
 
         else:
             err = print("Error Code:" + rescode)
-            return render(requests, "detail.html", {'youtube_id':youtube_id, 'obj':obj, 'perf_r':perf_r, 'err':err})
+            return render(requests, "detail.html", {'youtube_id':youtube_id, 'pl_url':pl_url, 'obj':obj, 'perf_r':perf_r, 'err':err})
         
     else:
-        return render(requests, "detail.html", {'youtube_id':youtube_id, 'obj':obj})
+        return render(requests, "detail.html", {'youtube_id':youtube_id, 'pl_url':pl_url, 'obj':obj})
 
 
 #QUIZ
@@ -90,10 +91,13 @@ def match_vid(request):
                 result.append(elem)
         
         f = result[0:4]
+        
+        # thumbnail
+        for obj in f:
+            y_id = obj.youtube_url.split(".be/")[1]
+            thumbnail = 'https://img.youtube.com/vi/' + y_id +'/1.jpg'
 
-        print(f)
-
-    return render(request, "list.html", {'f':f})
+    return render(request, "list.html", {'f':f, 'obj':obj, 'y_id':y_id, 'thumbnail':thumbnail})
 
 # map
 def mapview(requests):

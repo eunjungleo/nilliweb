@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" type="text/css" href='{% static "css/detail.css" %}'>
+<link rel="stylesheet" type="text/css" href='{% static "css/list.css" %}'>
 {% endblock head %}
 
 {% block main %}
@@ -19,6 +19,7 @@
         <div class='lists items'>
             {{ obj.title }}
         </div>
+        <iframe src='{{thumbnail}}'></iframe>
     </a>
 {% endfor %}
 

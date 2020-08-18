@@ -12,8 +12,57 @@ h1.detail_main_h1 {
     display: none;
 }
 
-ul li {
+ul.dropdown-menu li {
     float: left;
     margin-right: 1%;
 }
 
+.tab {
+    border:1px solid #ddd;
+    border-left:none;
+    background:#fff;
+    overflow:hidden;
+}
+
+.tab li {
+    float:left;
+    width:33.3%;
+    border-left:1px solid #ddd;
+    text-align:center;
+    box-sizing:border-box;
+}
+
+.tab li {
+    display:inline-block;
+    cursor:pointer;
+}
+
+.tab li.on {
+    background-color:#eee;
+    color:#f00;
+}
+
+.tab_con {
+    clear:both;
+    margin-top:5px;
+}
+
+.tab_con div {
+    display:none;
+    height:100px;
+    background:#fff;
+    text-align:center;
+}
+
+div.btn-group.show {
+    text-align: right;
+}
+
+label:hover {
+    font-weight: 700;
+    color: #000000;
+}
+
+.submit_btn {
+    visibility: hidden !important;
+}
