@@ -39,7 +39,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'nilli-env2.eba-epvizmw2.ap-northeast-2.elasticbeanstalk.com',
     '127.0.0.1',
-    
+    'www.nilliria.link',
+    'nilliria.link',
     'database-1.cx97o0boji76.ap-northeast-2.rds.amazonaws.com',
     ]
 
