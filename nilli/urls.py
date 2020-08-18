@@ -19,7 +19,7 @@ import viewer.views
 from viewer.views import *
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('nimda/', admin.site.urls),
     path('about/', AboutView.as_view(), name='about'),
     path('detail/<int:pk>/', viewer.views.detail_view, name='detail'),
     path('', ContentsAll.as_view()),
