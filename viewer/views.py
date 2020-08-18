@@ -81,11 +81,17 @@ def match_vid(request):
         sorts = sort1 + sort2 + sort3 + sort4 + sort5
 
         # order items by frequency
-        result = [item for items, i in Counter(sorts).most_common() for item in [items] * i] 
-        print(result)
+        result_raw = [item for items, i in Counter(sorts).most_common() for item in [items] * i] 
+
         # de-duplicate
-        result_set = set(result)
-        f = list(result_set)[0:3]
+        result = []
+        for elem in result_raw:
+            if elem not in result:
+                result.append(elem)
+        
+        f = result[0:4]
+
+        print(f)
 
     return render(request, "list.html", {'f':f})
 
@@ -105,5 +111,5 @@ def country_view(requests, option):
         content = Content.objects.filter(id__range=(7,8))
     elif option=='at':
         content = Content.objects.filter(id=9)
-        
+
     return render(requests, "list.html", {'content':content})

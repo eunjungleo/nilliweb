@@ -105,12 +105,15 @@
 {% block script %}
 <script>
 
+let currentNumber = document.getElementById('crntNum');
+
 // turn to next Question
 function pageTurner1() {
     let current = document.getElementById('1');
     current.setAttribute('font-weight', '700');
     current.classList.remove('on');
     document.getElementById('2').classList.add('on');
+    currentNumber.innerHTML = '2';
 }
 
 function pageTurner2() {
@@ -118,6 +121,7 @@ function pageTurner2() {
     current.setAttribute('font-weight', '700');
     current.classList.remove('on');
     document.getElementById('3').classList.add('on');
+    currentNumber.innerHTML = '3';
 }
 
 function pageTurner3() {
@@ -125,6 +129,7 @@ function pageTurner3() {
     current.setAttribute('font-weight', '700');
     current.classList.remove('on');
     document.getElementById('4').classList.add('on');
+    currentNumber.innerHTML = '4';
 }
 
 function pageTurner4() {
@@ -132,6 +137,7 @@ function pageTurner4() {
     current.setAttribute('font-weight', '700');
     current.classList.remove('on');
     document.getElementById('5').classList.add('on');
+    currentNumber.innerHTML = '5';
 }
 
 // setBack button
