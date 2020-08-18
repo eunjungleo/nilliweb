@@ -2,7 +2,7 @@ asgiref==3.2.10
 beautifulsoup4==4.9.1
 Django==3.1
 django-bootstrap4==2.2.0
-mysqlclient @ file:///C:/Users/glori/Downloads/mysqlclient-1.4.6-cp38-cp38-win32.whl
+mysqlclient==2.0.1
 PyMySQL==0.10.0
 pytz==2020.1
 soupsieve==2.0.1
