@@ -105,5 +105,5 @@ def country_view(requests, option):
         content = Content.objects.filter(id__range=(7,8))
     elif option=='at':
         content = Content.objects.filter(id=9)
-    print(content)
+        
     return render(requests, "list.html", {'content':content})

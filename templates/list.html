@@ -22,4 +22,12 @@
     </a>
 {% endfor %}
 
+{% if content %}
+    {% for c in content %}
+        <div class='lists items'>
+            {{ c.title }}
+        </div>
+    {% endfor %}
+{% endif %}
+
 {% endblock main %}
