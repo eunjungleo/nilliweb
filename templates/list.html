@@ -24,9 +24,11 @@
 
 {% if content %}
     {% for c in content %}
+        <a href="{% url 'detail' c.pk %}">
         <div class='lists items'>
             {{ c.title }}
         </div>
+        </a>
     {% endfor %}
 {% endif %}
 
