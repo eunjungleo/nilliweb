@@ -89,18 +89,18 @@ WSGI_APPLICATION = 'nilli.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
+import os
 
-    "default": {
-        "ENGINE": load_key("ENGINE"),
-        "NAME": load_key("NAME"),
-        "USER": load_key("USER"),
-        "PASSWORD": load_key("PASSWORD"),                 
-        "HOST": load_key("HOST"),                     
-        "PORT": load_key("PORT")
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'nillidb',
+        'USER': 'nadmin',
+        'PASSWORD': 'firebomb',
+        'HOST': 'database-1.cx97o0boji76.ap-northeast-2.rds.amazonaws.com',
+        'PORT': '3306';
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
