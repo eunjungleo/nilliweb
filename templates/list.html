@@ -14,14 +14,15 @@
 
 
 <!-- show results -->
+
 {% for obj in f %}
-    <a href='{% url "detail" obj.pk %}'>
-        <div class='lists items'>
-            {{ obj.title }}
-        </div>
-        <iframe src='{{thumbnail}}'></iframe>
-    </a>
+<a href='{% url "detail" obj.pk %}'>
+    <div class='lists items'>
+        {{ obj.title }}
+    </div>
+</a>
 {% endfor %}
+
 
 {% if content %}
     {% for c in content %}
