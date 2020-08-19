@@ -34,7 +34,7 @@ def load_key(setting, keys=keys):
 SECRET_KEY = load_key("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'nilli-env2.eba-epvizmw2.ap-northeast-2.elasticbeanstalk.com',
@@ -144,4 +144,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = '/static/'
 
-STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static')]
+#STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static')]

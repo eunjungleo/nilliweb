@@ -53,10 +53,10 @@ def detail_view(requests, pk):
 
         else:
             err = print("Error Code:" + rescode)
-            return render(requests, "detail.html", {'youtube_id':youtube_id, 'pl_url':pl_url, 'obj':obj, 'perf_r':perf_r, 'err':err, 'userlang':userlang})
+            return render(requests, "detail.html", {'youtube_id':youtube_id, 'pl_url':pl_url, 'obj':obj, 'perf_r':perf_r, 'err':err})
         
     else:
-        return render(requests, "detail.html", {'youtube_id':youtube_id, 'pl_url':pl_url, 'obj':obj, 'userlang':userlang})
+        return render(requests, "detail.html", {'youtube_id':youtube_id, 'pl_url':pl_url, 'obj':obj})
 
 
 #QUIZ
