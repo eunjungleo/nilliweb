@@ -37,6 +37,18 @@ main {
 
 footer {
     grid-area: footer;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+footer > p {
+    margin: 0 auto;
+    color: #727272;
+    font-weight: 200;
+    font-size: 9px;
 }
 
 img.nav_left {

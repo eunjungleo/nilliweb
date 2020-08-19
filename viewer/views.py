@@ -32,14 +32,14 @@ def detail_view(requests, pk):
     #papago API
     if requests.method=='POST':
         userlang = requests.POST['lang']
-        client_id = "arYxoqxnmpE47HiTcKg5" 
-        client_secret = "LIYfIKnF85"
+        client_id = "ffa3jefjyn" 
+        client_secret = "94AtTndnGXKtpckzXo05M8lARtZwuPvRDjKAutOz"
         encText = urllib.parse.quote(obj.korean)
         data = "source=ko&target="+ userlang + "&text=" + encText
-        url = "https://openapi.naver.com/v1/papago/n2mt"
+        url = "https://naveropenapi.apigw.ntruss.com/nmt/v1/translation"
         request = urllib.request.Request(url)
-        request.add_header("X-Naver-Client-Id",client_id)
-        request.add_header("X-Naver-Client-Secret",client_secret)
+        request.add_header("X-NCP-APIGW-API-KEY-ID",client_id)
+        request.add_header("X-NCP-APIGW-API-KEY",client_secret)
         response = urllib.request.urlopen(request, data=data.encode("utf-8"))
         rescode = response.getcode()
 

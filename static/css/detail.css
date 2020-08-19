@@ -1,6 +1,12 @@
 h1.detail_main_h1 {
     width: 100%;
-    height: 7%;
+    height: 10%;
+    line-break: normal;
+    font-size: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 600;
 }
 
 .open {
@@ -65,4 +71,9 @@ label:hover {
 
 .submit_btn {
     visibility: hidden !important;
+}
+
+.playlist.wrap {
+    bottom: 0;
+    position: relative;
 }
