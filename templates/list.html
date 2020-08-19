@@ -15,10 +15,11 @@
 
 <!-- show results -->
 
-{% for obj in f %}
+{% for obj in result %}
 <a href='{% url "detail" obj.pk %}'>
     <div class='lists items'>
-        {{ obj.title }}
+        <img class='thumbs' src="http://img.youtube.com/vi/{{ obj.youtube_url|slice:"17:" }}/0.jpg">
+        <p class='title'>{{ obj.title }}</p>
     </div>
 </a>
 {% endfor %}

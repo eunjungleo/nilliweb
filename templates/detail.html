@@ -17,7 +17,7 @@
 
 <ul class='detail_main_ul tab' id='tab'>
     {% if perf_r%}
-    <li class='etc' id='etc'>lang</li>
+    <li class='etc' id='etc'>{{ userlang|upper }}</li>
     {% endif %}
     {% if obj.korean %}
     <li class='kor' id='kor' >한국어</li>
@@ -121,7 +121,8 @@
 
 <!-- source -->
 <div class='playlist wrap'>
-    <iframe width="100%" height="auto" src="{{ pl_url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <p>재생목록</p>
+    <iframe class='iframe' width="100%" height="auto" src="{{ pl_url }}" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 {% endblock main %}
 

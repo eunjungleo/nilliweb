@@ -74,6 +74,16 @@ label:hover {
 }
 
 .playlist.wrap {
-    bottom: 0;
-    position: relative;
+    bottom: 5%;
+    right: 0;
+    position: fixed;
+    background-color: cornsilk;
+}
+
+.iframe {
+    padding: 2%;
+}
+
+.detail_main_div.wrap {
+    padding-bottom: 40rem;
 }

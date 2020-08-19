@@ -6,3 +6,29 @@
     align-items: center;
     justify-content: center;
 }
+
+.lists.items {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.lists.items:hover {
+    background-color: #727272;
+}
+
+.thumbs {
+    width: 50%;
+    height: auto;
+    padding: 5%;
+}
+
+p.title {
+    width: 50%;
+    height: auto;
+    font-weight: 600;
+    padding: 5%;
+    font-size: 20px;
+}

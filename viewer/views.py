@@ -49,14 +49,14 @@ def detail_view(requests, pk):
             r = response_body.decode('utf-8')
             perf_r = r.split('"translatedText":')[1].split(',"engineType"')[0]
             
-            return render(requests, "detail.html", {'youtube_id':youtube_id, 'pl_url':pl_url, 'obj':obj, 'perf_r':perf_r})
+            return render(requests, "detail.html", {'youtube_id':youtube_id, 'pl_url':pl_url, 'obj':obj, 'perf_r':perf_r, 'userlang':userlang})
 
         else:
             err = print("Error Code:" + rescode)
-            return render(requests, "detail.html", {'youtube_id':youtube_id, 'pl_url':pl_url, 'obj':obj, 'perf_r':perf_r, 'err':err})
+            return render(requests, "detail.html", {'youtube_id':youtube_id, 'pl_url':pl_url, 'obj':obj, 'perf_r':perf_r, 'err':err, 'userlang':userlang})
         
     else:
-        return render(requests, "detail.html", {'youtube_id':youtube_id, 'pl_url':pl_url, 'obj':obj})
+        return render(requests, "detail.html", {'youtube_id':youtube_id, 'pl_url':pl_url, 'obj':obj, 'userlang':userlang})
 
 
 #QUIZ
@@ -90,14 +90,10 @@ def match_vid(request):
             if elem not in result:
                 result.append(elem)
         
-        f = result[0:4]
-        
-        # thumbnail
-        for obj in f:
-            y_id = obj.youtube_url.split(".be/")[1]
-            thumbnail = 'https://img.youtube.com/vi/' + y_id +'/1.jpg'
+        result = result[:4]
 
-    return render(request, "list.html", {'f':f, 'obj':obj, 'y_id':y_id, 'thumbnail':thumbnail})
+
+    return render(request, "list.html", { 'result':result})
 
 # map
 def mapview(requests):
