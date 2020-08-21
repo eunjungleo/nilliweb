@@ -30,7 +30,7 @@
         <a href="{% url 'detail' c.pk %}">
     <div class='lists items'>
         <img class='thumbs' src="http://img.youtube.com/vi/{{ c.youtube_url|slice:"17:" }}/0.jpg">
-        <p class='title'>{{ obj.title }}</p>
+        <p class='title'>{{ c.title }}</p>
     </div>
         </a>
     {% endfor %}
